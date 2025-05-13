@@ -60,3 +60,6 @@ This repository is structured to reflect my progress in learning JavaScript. It 
   - Currency Converter
 
 ---
+
+#### You will get all project in my Projects repo
+---
