@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+    
+        body {
+            background-color: #121212;
+        }
+    
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        #box {
+            padding: 10px 20px;
+            background-color: #c61209;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+    
+        #box:hover {
+            background-color: #e6392b;
+            transform: scale(1.05);
+        }
+    
+        #text {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #ffffffb3;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="container">
+        <div id="box">Click Me</div><br>
+        <p id="text"></p>
+    </div>
+
+    <script>
+        const x = document.getElementById("box");
+        const text = document.getElementById("text");
+
+        x.addEventListener("click", allFunction);
+
+        // Access nested function call nested function in Parent function
+
+        function allFunction() {
+            function myFunction() {
+                alert("First function executed");
+            }
+            myFunction();
+
+            function myFunction2() {
+                alert("Second function executed");
+
+            }
+            myFunction2()
+            
+            text.innerHTML = "All Function Executed";
+            
+        }
+    </script>
+</body>
+
+</html>

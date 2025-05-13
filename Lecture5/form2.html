@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form DOM || Event Listener</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 300px;
+            background-color: #2a2a2a;
+            color: white;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border: 2px solid #c61209;
+            background-color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <label for="fName">Enter Your First Name:</label>
+        <input type="text" id="fName" />
+
+        <label for="lName">Enter Your Last Name:</label>
+        <input type="text" id="lName" />
+    </div>
+
+    <script>
+        const firstName = document.getElementById("fName");
+        const lastName = document.getElementById("lName");
+
+        firstName.addEventListener("input", function () {
+            this.value = this.value.toUpperCase();
+        });
+
+        lastName.addEventListener("input", function () {
+            this.value = this.value.toUpperCase();
+        });
+    </script>
+</body>
+
+</html>

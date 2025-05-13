@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color changer</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            color: #fff;
+        }
+
+        body {
+            background-color: rgb(1, 10, 39);
+        }
+
+        .parent {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .button {
+            border: 1px solid white;
+            width: 110px;
+            height: 140px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            cursor: pointer;
+        }
+
+        #grey {
+            background-color: grey;
+        }
+
+        #white {
+            background-color: white;
+            color: black;
+        }
+
+        #red {
+            background-color: red;
+        }
+
+        #royalblue {
+            background-color: royalblue;
+        }
+
+        #yellow {
+            background-color: yellow;
+            color: black;
+        }
+
+        #default {
+            background-color: rgb(1, 10, 39);
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="button" id="grey">Grey</div>
+        <div class="button" id="white">White</div>
+        <div class="button" id="red">Red</div>
+        <div class="button" id="royalblue">royalblue</div>
+        <div class="button" id="yellow">Yellow</div>
+        <div class="button" id="default">Default</div>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll(".button");
+        const body = document.querySelector("body");
+        const whiteBoxBorder = document.querySelector('#white');
+        const defaultBtn = document.getElementById("default");
+
+        buttons.forEach(function (button) {
+            button.addEventListener("click", function (e) {
+                // if (e.target.id === "grey") {
+                //     body.style.backgroundColor = e.target.id;
+                // };
+                // if (e.target.id === "white") {
+                //     body.style.backgroundColor = e.target.id;
+                //     whiteBoxBorder.style.border = '1px solid black';
+                // };
+                // if (e.target.id === "red") {
+                //     body.style.backgroundColor = e.target.id;
+                // };
+                // if (e.target.id === "royalblue") {
+                //     body.style.backgroundColor = e.target.id;
+                // };
+                // if (e.target.id === "yellow") {
+                //     body.style.backgroundColor = e.target.id;
+                // };
+                // if (e.target.id === "default") {
+                //     console.log(defaultBtn)
+                //     body.style.backgroundColor = "rgb(1, 10, 39)";
+                //     defaultBtn.style.borderStyle = "none"
+                // }
+                // defaultBtn.style.borderStyle = "1px solid white";
+
+                if (e.target.id === "grey") {
+                    body.style.backgroundColor = e.target.id;
+
+                } else if (e.target.id === "white") {
+                    body.style.backgroundColor = e.target.id;
+                    whiteBoxBorder.style.border = '1px solid black';
+
+                } else if (e.target.id === "red") {
+                    body.style.backgroundColor = e.target.id;
+                    
+                } else if (e.target.id === "royalblue") {
+                    body.style.backgroundColor = e.target.id;
+                    
+                } else if (e.target.id === "yellow") {
+                    body.style.backgroundColor = e.target.id;
+                    
+                } else if (e.target.id === "default") {
+                    body.style.backgroundColor = "rgb(1, 10, 39)";
+                    defaultBtn.style.borderStyle = "none";
+                }
+                // buttons.forEach(button => button.style.border = '1px solid white');
+            });
+        });
+    </script>
+</body>
+
+</html>

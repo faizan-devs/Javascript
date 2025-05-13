@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: 'roboto', sans-serif;
+        }
+
+        body {
+            background: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        form h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #5c6ac4;
+            box-shadow: 0 0 5px rgba(92, 106, 196, 0.3);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            background-color: #5c6ac4;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #4b56a2;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #444;
+            text-align: center;
+        }
+
+        #bmi-guide {
+            margin-top: 25px;
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        #bmi-guide h3, #bmi-guide h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        #bmi-guide p {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <h1>BMI Calculator</h1>
+
+            <p><label>Height in cm: </label><input type="text" id="height"></p>
+            <p><label>Weight in kg: </label><input type="text" id="weight"></p>
+            <div id="result"></div>
+            <button type="button" onclick="calculateBmi()">Calculate</button>
+            <button type="button" onclick="restartbtn()" id="btn" style="display: none;">Restart</button>
+
+            <div id="bmi-guide">
+                <h3>Note:-</h3>
+                <h4>BMI weight guide:-</h4>
+                <p>Under Weight = Less than 18.6</p>
+                <p>Normal Range = 18.6 and 24.9</p>
+                <p>Overweight = Greater than 24.9</p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+
+        // !isNaN(height) will return true even if height is a valid number!
+        // So your logic always triggers the "Enter valid height" / "Enter valid weight" message.
+        // Also, checking height == '' after parseInt doesn't work because after parsing, it becomes NaN, not an empty string.
+
+        // Correct logic should be:
+        //? Check if height or weight are NaN, or less than or equal to 0.
+
+        // Main fixes:
+        // Use isNaN(height) to detect invalid input.
+        // Check if height and weight are greater than 0.
+        // Use parseFloat instead of parseInt — because height like 175.5 cm can exist realistically.
+
+        // Use addEventListener('submit') approach (current one).
+        // Improve your if-else ladder to avoid logic bugs.
+        // Keep JavaScript out of HTML as much as possible for a clean structure.
+        
+        const form = document.querySelector("form")
+        const restartBtn = document.getElementById('btn');
+
+        function calculateBmi(){
+            const height = parseFloat(document.querySelector('#height').value);
+            const weight = parseFloat(document.querySelector('#weight').value);
+            const result = document.querySelector('#result');
+
+            if(isNaN(height) || height <= 0){
+                result.innerHTML = `Enter valid height`;
+            }else if(isNaN(weight) || weight <= 0 ){
+                result.innerHTML = `Enter valid weight`;
+            }else{
+                const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+                result.innerHTML = `Your BMI is ${bmi}`
+            }
+            restartBtn.style.display = "block";
+        }
+
+        function restartbtn () {
+            form.reset()
+            // document.querySelector('#height').value = "";
+            // document.querySelector('#weight').value = "";
+            document.querySelector('#result').innerHTML = "";
+            restartBtn.style.display = "none";
+        }
+    </script>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
