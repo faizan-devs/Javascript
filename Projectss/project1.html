@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background Color</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        button {
+            padding: 12px 24px;
+            margin: 10px;
+            font-size: 1rem;
+            color: #000;
+            background-color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Changing Background Color</h1>
+    <button type="button" id="start">Start</button>
+    <button type="button" id="stop">Stop</button>
+
+    <script>
+        // Generate random color
+        const randomcolor = function () {
+            let hex = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += hex[Math.floor(Math.random() * 16)];
+            };
+            return color;
+        };
+
+        let intervalId;
+
+        const changeColor = function () {
+            document.body.style.backgroundColor = randomcolor();
+        };
+
+        const startchangingBgColor = function () {
+            if (!intervalId) {
+                intervalId = setInterval(changeColor, 1000);
+            }
+        };
+
+        const stopchangingBgColor = function () {
+            clearInterval(intervalId);
+            intervalId = null;
+        };
+
+        document.querySelector("#start").addEventListener("click", startchangingBgColor);
+        document.querySelector("#stop").addEventListener("click", stopchangingBgColor);
+
+        // use function declarations when you want clarity, reusability, and hoisting.
+        // Use const function expressions when you want more control, especially inside blocks or closures.
+    </script>
+</body>
+
+</html>

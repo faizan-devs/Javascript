@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change website color</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <style>
+        body{
+            margin: 0%;
+            padding: 0%;
+            font-family: 'Arial';
+        }
+        i{
+            font-size: 50px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        h1{
+            text-align: center;
+            font-size: 3em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Javascript Toggle Dark Mode</h1>
+    <i class="bi bi-brightness-high-fill" id="toggleDark"></i>
+
+    <script>
+        const toogle = document.getElementById('toggleDark');
+        const body = document.querySelector('body');
+
+        toogle.addEventListener('click', function(){
+            this.classList.toggle('bi-moon');
+            if(this.classList.toggle('bi-brightness-high-fill')){
+                body.style.background = "white";
+                body.style.color = "black";
+                body.style.transition = "2s";
+            }else{
+                body.style.background = "black";
+                body.style.color = "white";
+                body.style.transition = "2s";
+            }
+        })
+    </script>
+</body>
+
+</html>
