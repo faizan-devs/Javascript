@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Javascript Function</h1>
+
+    <button onclick="myFunction1(40,21)">Show Result</button>
+    <p id="demo"></p>
+
+    <button onclick="myAddition()">Show Result</button>
+    <p id="demo2"></p>
+
+    <script>
+        function myFunction1(num1, num2){
+            let result = document.getElementById("demo");
+            result.innerHTML = num1 * num2;
+            return
+        }
+
+        function myFunction(num1, num2){
+            return num1 + num2
+        }
+
+        function myAddition(){
+            let total = myFunction(300,400);
+            document.getElementById("demo2").innerHTML = total
+        }
+    </script>
+</body>
+</html>
