@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Change links</h2>
+    <p id="random"></p>
+    <p id="demo"></p>
+
+    <script>
+        const randomNumber = Math.floor(Math.random() * 10) + 1;
+        let print = document.getElementById("demo");
+        let num = document.getElementById("random");
+
+        num.innerHTML = randomNumber;
+
+        let text;
+
+        if(randomNumber >= 6){
+            text = "<a href='https://chatgpt.com'>Open AI</a>";
+        }else{
+            text = "<a href='https://gemini.google.com/app?hl=en-IN'>Google gemini</a>";
+        }
+
+        print.innerHTML = text;
+    </script>
+</body>
+</html>
