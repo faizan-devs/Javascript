@@ -61,5 +61,16 @@ This repository is structured to reflect my progress in learning JavaScript. It 
 
 ---
 
-#### You will get all project in my Projects repo
+### 📦 Project Showcase
+
+Looking for the full projects?  
+👉 You can find all complete mini-projects in my [**Projects Repository**](https://github.com/Faizan260118/Projects).
+
+Each project includes:
+- Clean and well-commented code
+- README with instructions
+- Live demo links (if available)
+
 ---
+
+Feel free to explore and follow along!
