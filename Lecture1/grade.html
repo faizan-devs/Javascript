@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+		rel="stylesheet">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			font-family: 'Roboto';
+		}
+
+		body {
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			margin: 50px;
+			background-color: #172F68;
+		}
+
+		input {
+			margin: 15px;
+			width: 250px;
+			padding: 10px;
+			border: 2px solid black;
+			font-size: 20px;
+			border-radius: 5px;
+		}
+
+		h2 {
+			font-size: 3rem;
+		}
+
+		button {
+			width: 200px;
+			padding: 10px 5px 10px 5px;
+			border: none;
+			border-radius: 5px;
+			border: 1px solid black;
+			cursor: pointer;
+			margin-bottom: 20px;
+			font-size: 20px;
+		}
+
+		p {
+			font-size: 20px;
+		}
+
+		div {
+			background-color: cadetblue;
+			width: 500px;
+			height: 300px;
+			padding-top: 80px;
+			margin-top: 100px;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<h2>Grade Calculator</h2>
+		<input type="number" id="score" placeholder="Enter Marks" min="0" max="100"> <br>
+		<button onclick="gradeCalculator()">Get Result</button>
+		<p id="result"></p>
+	</div>
+
+	<script>
+		function gradeCalculator() {
+			let score = document.getElementById("score").value.trim();
+			let getResult = document.getElementById("result");
+
+			if (score === "") {
+				getResult.innerHTML = `<p style='color: red'>Please enter a marks</p>`;
+				return;
+			}
+
+			score = Number(score);
+
+			if (isNaN(score) || score < 0 || score > 100) {
+				getResult.innerHTML = `<p style='color: red'>Invalid Marks, Enter a marks between 0 to 100</p>`;
+			} else {
+				let grade;
+				let message;
+
+				if (score >= 90) {
+					grade = "A";
+					message = "Excellent";
+					getResult.style.color = "#355E3B";
+				} else if (score >= 80) {
+					grade = "B";
+					message = "Very Good";
+					getResult.style.color = "#355E3B";
+				} else if (score >= 70) {
+					grade = "C";
+					message = "Good";
+					getResult.style.color = "blue";
+				} else if (score >= 60) {
+					grade = "D";
+					message = "Just Pass";
+					getResult.style.color = "blue";
+				} else if (score <= 59) {
+					grade = "E";
+					message = "Fail";
+					getResult.style.color = "red";
+				}
+
+				getResult.innerHTML = `<p><i><b>${message}</b></i>, Marks: <strong>${score}</strong>, Grade: <strong>${grade}</strong></p>`
+			}
+		}
+
+	</script>
+</body>
+
+</html>

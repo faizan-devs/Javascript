@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h2>Display Time and Date</h2>
+	<button onclick="myDate()">
+		click me to Display date and time
+	</button>
+
+	<p id="demo"></p>
+	<p id="demo2"></p>
+
+	<script src="./01_variables.js"></script>
+	<script src="./02_datatypes.js"></script>
+	<script src="./03_conversion.js"></script>
+	<script src="./04_comparison.js"></script>
+	<script src="./05_strings.js"></script>
+	<script src="./06_num_and_maths.js"></script>
+	<script>
+
+
+		function myDate() {
+			let myDate = new Date().toLocaleString();
+			document.querySelector("#demo2").innerHTML = "My First Javascript Code";
+			document.querySelector("#demo").innerHTML = myDate;
+			document.body.style.backgroundColor = "#081F41";
+			document.body.style.color = "#fff";
+		}
+	</script>
+</body>
+
+</html>
