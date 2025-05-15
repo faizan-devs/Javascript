@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch API</title>
+    <style>
+        body {
+            background-color: #05386b;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: #5cdb95;
+            color: #05386b;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a29e;
+        }
+
+        p {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" id="btn">Get Joke</button>
+    <p id="text"></p>
+    <p id="text2"></p>
+
+    <script>
+        const URL = "https://official-joke-api.appspot.com/random_joke";
+        const text = document.querySelector("#text");
+        const text2 = document.querySelector("#text2");
+        const button = document.querySelector("#btn");
+
+        // Using async await
+        async function getJoke() {
+            try {
+                button.disabled = true;
+                text.innerText = "Loading joke...";
+                text2.innerText = "";
+
+                const response = await fetch(URL);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                text.innerText = `Ask:- ${data.setup}`;
+                text2.innerText = `Punchline:- ${data.punchline}`;
+
+            } catch (error) {
+                text.innerText = "Failed to load to joke";
+                text2.innerText = "";
+                console.error("Error", error)
+
+            } finally {
+                button.disabled = false;
+            }
+        }
+
+        button.addEventListener("click", getJoke);
+
+        /*
+        Using promise chainning.then
+        function getJoke() {
+            // button.disabled = true;
+            text.innerText = "Loading joke...";
+            text2.innerText = "";
+            // button.disabled = false;
+
+            fetch(URL)
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    text.innerText = `Ask:- ${data.setup}`;
+                    text2.innerText = `Punchline:- ${data.punchline}`;
+                })
+                .catch((error) => {
+                    text.innerText = "Failed to load joke.";
+                    console.error("Error:", error)
+                })
+        }
+        */
+
+    </script>
+</body>
+
+</html>
