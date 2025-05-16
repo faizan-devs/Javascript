@@ -1,0 +1,22 @@
+Suggested Learning Flow For OOP's in JAvascript:-
+
+1. Objects & this
+2. Constructor Functions
+3. Prototypes & Inheritance
+4. ES6 Classes
+5. Encapsulation with Private Fields
+6. Getters & Setters
+7. Inheritance & super
+8. Polymorphism & Overriding
+9. Composition vs Inheritance
+10.Advanced OOP Patterns (Mixins, Abstraction)
+
+Bonus Topics:-
+Static methods & properties
+
+1. Instance vs. prototype members
+2. Mixins
+3. Object.create()
+4. Object.assign()
+5. Duck typing
+6. Class expressions
