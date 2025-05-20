@@ -264,3 +264,49 @@ let c = 6;
 // console.log(--c);
 --c
 // console.log(c);
+
+//* Function declaration and Function Expression
+
+// Function Declaration
+function sayHello(){
+    console.log("Hello")
+}
+
+// Key Characteristics:
+// Named function
+// Hoisted: Can be called before its definition in the code.
+greet();
+
+function sayHello(greet){
+    console.log("Hi there!")
+}
+
+// Function Expression
+const sayHello = function(){
+    console.log("Hello");
+}
+
+// or with an arrow function
+const sayGreet = () => {
+    console.log("Hello");
+}
+
+// Key Characteristics:
+// Function is stored in a variable.
+// Can be anonymous (no name).
+// Not hoisted: You must define it before using it.
+greet(); //ReferenceError: Cannot access 'greet' before intialization
+
+const greet = function(){
+    console.log("Hello")
+}
+
+//* When to Use What?
+
+// Use function declarations for defining reusable utility functions.
+// Use function expressions (especially arrow functions) for:
+// Callbacks
+// Inline functions
+// Closures
+// When using 'this' carefully (arrow functions don’t have their own 'this')
+
