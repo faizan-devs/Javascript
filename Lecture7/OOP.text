@@ -12,11 +12,11 @@ Suggested Learning Flow For OOP's in JAvascript:-
 10.Advanced OOP Patterns (Mixins, Abstraction)
 
 Bonus Topics:-
-Static methods & properties
 
-1. Instance vs. prototype members
-2. Mixins
-3. Object.create()
-4. Object.assign()
-5. Duck typing
-6. Class expressions
+1. Static methods & properties
+2. Instance vs. prototype members
+3. Mixins
+4. Object.create()
+5. Object.assign()
+6. Duck typing
+7. Class expressions
