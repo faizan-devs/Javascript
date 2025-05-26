@@ -29,7 +29,7 @@ console.table([password, adminName, isLoggedInTime, adminLoggedIn, city, state, 
 // console.log(number);
 
 
-//* Correct version more redable and not unecessary outer loop
+//* Correct version more readable and not unecessary outer loop
 function writeTable(num){
     let result = '';
     for(let j = 1; j <= 10; j++){
