@@ -78,7 +78,7 @@ let admin = {
 };
 admin.greet()
 // console.log("age" in admin);
-Object.assign(admin, {age:20});
+Object.assign(admin, { age: 20 });
 console.log(admin);
 
 //? this Keyword
@@ -108,7 +108,7 @@ let car2 = { ...car1, model: "X5" }; // Copy & add new property
 // Object Destructuring
 let user = { firstName: "John", lastName: "Doe" };
 // let { firstName, lastName } = user;
-let { firstName : first, lastName : last } = user;
+let { firstName: first, lastName: last } = user;
 
 // console.log(firstName); // "John"
 // console.log(first);
@@ -127,12 +127,12 @@ let { firstName : first, lastName : last } = user;
 // Use this to assign properties and methods.
 // Use the new keyword to create new instances.
 
-function Person(first, last, age){
+function Person(first, last, age) {
 	this.firstName = first;
 	this.lastName = last;
 	this.age = age;
 
-	this.fullName = function(){
+	this.fullName = function () {
 		console.log(`${this.firstName} ${this.lastName}`)
 	}
 }
@@ -140,7 +140,7 @@ function Person(first, last, age){
 Person.prototype.nationality = "Indian";
 Person.prototype.eyeColor = "Black";
 
-Person.prototype.changeColor = function(eye){
+Person.prototype.changeColor = function (eye) {
 	this.eyeColor = eye;
 }
 

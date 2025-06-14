@@ -11,7 +11,7 @@ if (age >= 18) text = "You are not eligible for vote";
 // 	console.log(`You can buy alcohol`);
 // }else{
 // 	console.log("You not by alcohol");
-	
+
 // }
 
 // if(typeof age === "number"){
@@ -20,11 +20,11 @@ if (age >= 18) text = "You are not eligible for vote";
 // 	console.log(`It is not a number`);
 // }
 
-if(!isNaN(age) && typeof age !== "boolean"){
+if (!isNaN(age) && typeof age !== "boolean") {
 	console.log("It is number");
-}else{
+} else {
 	console.log("It is not a number");
-	
+
 }
 
 let result = null ?? "result not given";
@@ -33,12 +33,12 @@ console.log(result); //? ?? (Nullish Coalescing Operator): This operator returns
 
 let name = true;
 
-let user = (typeof name === "string") ? "a string":"Not a string"
+let user = (typeof name === "string") ? "a string" : "Not a string"
 console.log(user);
 console.log(typeof user);
 
 
-const voteable = (age < 18) ? "Too young":"Old enough";
+const voteable = (age < 18) ? "Too young" : "Old enough";
 console.log(voteable);
 console.log(typeof voteable);
 
@@ -55,8 +55,8 @@ console.log(true && true); //true
 console.log(true || true); //true
 console.log(false && true); //false
 console.log(false || true); //true
-console.log(55>40 && 40>70); //false
-console.log(55>40 || 40>70); //true
+console.log(55 > 40 && 40 > 70); //false
+console.log(55 > 40 || 40 > 70); //true
 console.log(true || false); //true
 console.log(!true); //false
 console.log(!false); //true
@@ -80,7 +80,7 @@ console.log(canVote); // "Yes, you can vote"
 
 // nested ternary
 let num = -4;
-let numResult = (num > 0) ? "Positive" : (num < 0) ? "Negative":"Zero";
+let numResult = (num > 0) ? "Positive" : (num < 0) ? "Negative" : "Zero";
 console.log(numResult);
 
 
@@ -99,7 +99,7 @@ let user2 = undefined;
 let userinfo2 = undefined ?? "Guest";
 console.log(userinfo2);
 
-function greet(name){
+function greet(name) {
 	return "Hello, " + (name ?? "Guest");
 }
 console.log(greet());
@@ -140,8 +140,8 @@ let apiCall = {};
 console.log(apiCall.getData?.());
 
 let arr = [
-	{name: "Faizan", age: 20},
-	{name: "Sania", age: 20}
+	{ name: "Faizan", age: 20 },
+	{ name: "Sania", age: 20 }
 ]
 
 console.log(arr[0])

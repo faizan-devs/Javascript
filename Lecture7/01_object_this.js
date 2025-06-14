@@ -5,7 +5,7 @@
 const person = {
     name: "Alice",
     age: 25,
-    greet: function(){
+    greet: function () {
         console.log(`Hi my name is ${this.name} and i am ${this.age} years old`)
     }
 };
@@ -16,7 +16,7 @@ const person = {
 const car = {
     brand: "Tesla",
     model: "Model S",
-    getDetails: function() {
+    getDetails: function () {
         return `${this.brand}:- ${this.model}`
     }
 };
@@ -24,10 +24,10 @@ const car = {
 
 //* 3. Constructor Functions
 //? We can use constructor functions to create multiple objects with the same structure:
-function Person(name, age){
+function Person(name, age) {
     this.name = name;
     this.age = age;
-    this.greet = function(){
+    this.greet = function () {
         return `Hi I'm ${this.name}`
     }
 }
@@ -53,12 +53,12 @@ const user = {
 //* 5. Classes (Modern JavaScript OOP)
 //? JavaScript introduced the class syntax in ES6.
 
-class Animal{
-    constructor(name){
+class Animal {
+    constructor(name) {
         this.name = name;
     }
 
-    speak(){
+    speak() {
         return `${this.name} makes a sound a lot`;
     }
 }

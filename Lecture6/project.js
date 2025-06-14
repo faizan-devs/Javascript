@@ -148,7 +148,7 @@ function fetchData() {
 
             if (success) {
                 resolve(data);
-            }else{
+            } else {
                 reject("Failed to fetch data")
             }
         }, 2000);

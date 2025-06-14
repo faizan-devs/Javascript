@@ -58,7 +58,7 @@ let integer = 33.44;
 // console.log(Math.max(2, 4, 6));
 // console.log(Math.floor(Math.random() * 10 + 1));
 
-function myRandom(min, max){
+function myRandom(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min)
 }
 // console.log(myRandom(10, 20));

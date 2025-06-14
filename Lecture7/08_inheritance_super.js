@@ -75,36 +75,36 @@ dog.speak();
 
 //* We'll build a simple system with a base class Employee and two child classes: Manager and Developer.
 
-class Employee{
-    constructor(name, age, salary){
+class Employee {
+    constructor(name, age, salary) {
         this.name = name;
         this.age = age;
         this.salary = salary;
     }
 
-    getDetails(){
+    getDetails() {
         return `Name: ${this.name}, Age: ${this.age}, Salary: ${this.salary}`;
     }
 }
 
-class Manager extends Employee{
-    constructor(name, age, salary, department){
+class Manager extends Employee {
+    constructor(name, age, salary, department) {
         super(name, age, salary);
         this.department = department;
     }
 
-    getDetails(){
+    getDetails() {
         return `${super.getDetails()}, Department: ${this.department}`;
     }
 }
 
-class Developer extends Employee{
-    constructor(name, age, salary, language){
+class Developer extends Employee {
+    constructor(name, age, salary, language) {
         super(name, age, salary);
         this.language = language;
     }
 
-    getDetails(){
+    getDetails() {
         return `${super.getDetails()}, Language: ${this.language}`;
     }
 }

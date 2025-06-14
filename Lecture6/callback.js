@@ -21,11 +21,11 @@
 // It’s a way to say, “Hey, when you're done doing this, run this function.”
 // It's often used to handle asynchronous operations like API calls, file reading, or timers.
 
-function greet(name){
+function greet(name) {
     console.log(`Hello, ${name}`);
 }
 
-function processUserInput(callback){
+function processUserInput(callback) {
     const name = "Faizan";
     callback(name); // Calling the passed-in function
 }
@@ -34,7 +34,7 @@ console.log(processUserInput(greet));  // Output: Hello, Alice
 
 // Using setTimeout (Asynchronous Callback)
 
-function sayHi(){
+function sayHi() {
     console.log("Hi there!");
 }
 
@@ -42,15 +42,15 @@ setTimeout(sayHi, 2000); /// sayHi is called after 2 seconds
 
 // Math Operation with Callback
 
-function calculate(a, b, operation){
+function calculate(a, b, operation) {
     return operation(a, b);
 }
 
-function add(x, y){
+function add(x, y) {
     return x + y;
 }
 
-function multiply(x, y){
+function multiply(x, y) {
     return x * y;
 }
 
@@ -67,15 +67,15 @@ numbers.forEach((num) => {
 
 // Custom Function with Callback
 
-function fetchData(callback){
+function fetchData(callback) {
     console.log("fetching date...");
     setTimeout(() => {
-        const data = { name: "Faizan", age: 21};
+        const data = { name: "Faizan", age: 21 };
         callback(data);
     }, 1500);
 }
 
-function displayData(user){
+function displayData(user) {
     console.log("User:", user)
 }
 
@@ -83,15 +83,15 @@ console.log(fetchData(displayData));
 
 // Chaining Multiple Callbacks
 
-function step1(next){
+function step1(next) {
     console.log("Step1");
     next();
 }
-function step2(next){
+function step2(next) {
     console.log("Step2");
     next();
 }
-function step3(next){
+function step3(next) {
     console.log("Step3");
     next();
 }
@@ -117,9 +117,9 @@ step1(() => {
 
 //  1. Using Callback
 
-function getUser(callback){
+function getUser(callback) {
     setTimeout(() => {
-        const user = { name: "Sania", age: 21};
+        const user = { name: "Sania", age: 21 };
         callback(user);
     }, 2000);
 }

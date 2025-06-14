@@ -5,17 +5,17 @@
 //? Modern JavaScript Class with #private fields
 
 // 1. Bank Account using Manual Closure
-function createBankAccount(owner, balance = 0){
+function createBankAccount(owner, balance = 0) {
     let _balance = balance;
 
     return {
         getOwner: () => owner,
         getBalance: () => _balance,
         deposit: (amount) => {
-            if(amount > 0) _balance += amount;
+            if (amount > 0) _balance += amount;
         },
         withdraw: (amount) => {
-            if(amount > 0 && amount <= _balance) _balance -= amount;
+            if (amount > 0 && amount <= _balance) _balance -= amount;
         }
     };
 }
@@ -45,7 +45,7 @@ acc1.withdraw(2300);
 class BankAccount {
     #balance;
 
-    constructor(owner, balance =  0){
+    constructor(owner, balance = 0) {
         this.owner = owner;
         this.#balance = balance;
     }
@@ -59,11 +59,11 @@ class BankAccount {
     }
 
     deposit(amount) {
-        if(amount > 0) this.#balance += amount;
+        if (amount > 0) this.#balance += amount;
     }
 
-    withdraw(amount){
-        if(amount > 0 && amount <= this.#balance) this.#balance -= amount;
+    withdraw(amount) {
+        if (amount > 0 && amount <= this.#balance) this.#balance -= amount;
     }
 }
 

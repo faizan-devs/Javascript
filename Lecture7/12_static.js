@@ -1,7 +1,7 @@
 // In JavaScript, static methods and properties are defined on the class itself, not on instances of the class. They're used when you want functionality or data that belongs to the class as a whole, rather than to any one object created from the class.
 
-class MyClass{
-    static myStaticMethod(){
+class MyClass {
+    static myStaticMethod() {
         console.log("This is a static method")
     }
 }
@@ -11,29 +11,29 @@ const obj = new MyClass();
 // obj.myStaticMethod(); // Error:- obj.myStaticMethod is not a function
 
 // Static Property (ES2022+)
-class Myclass{
+class Myclass {
     static myStaticMethod = "Hello World!"
 }
 
 console.log(Myclass.myStaticMethod); // Hello World!
 
 // Note: For older environments, static properties are typically defined outside the class like this:
-class myclass {}
+class myclass { }
 myclass.myStaticMethod = "Hello, world";
 
 // Example with Both Static and Instance Members
-class Counter{
+class Counter {
     static count = 0;
 
-    constructor(){
+    constructor() {
         Counter.count++;
     }
 
-    static getCount(){
+    static getCount() {
         return Counter.count++;
     }
 
-    show(){
+    show() {
         console.log("Instance method");
     }
 }
@@ -55,10 +55,10 @@ c.show();
 
 // Real world example
 
-class User{
+class User {
     static roles = ["admin", "editor", "viewer"];
 
-    static isValidRole(role){
+    static isValidRole(role) {
         return User.roles.includes(role);
     }
 }

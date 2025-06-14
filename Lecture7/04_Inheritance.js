@@ -31,17 +31,17 @@ dog.bark(); // Rex barks
 //? JavaScript introduced the class syntax in ES6 to make inheritance cleaner and more readable.
 
 class Animal {
-    constructor(name){
+    constructor(name) {
         this.name = name;
     }
 
-    speak(){
+    speak() {
         console.log(`${this.name} makes a sound.`)
     }
 }
 
-class Dog extends Animal{
-    bark(){
+class Dog extends Animal {
+    bark() {
         console.log(`${this.name} barks.`)
     }
 }
@@ -60,7 +60,7 @@ dog.bark(); // Max barks.
 
 // Object Inheritance Example
 const aniaml = {
-    speak(){
+    speak() {
         console.log(`Animal speaks`)
     }
 };

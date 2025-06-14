@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             height: 100vh;
             width: 100vw;
             color: white;
         }
-        body{
+
+        body {
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .box{
+
+        .box {
             width: 180px;
             height: 100px;
             background-color: #c61209;
@@ -29,19 +32,21 @@
         }
     </style>
 </head>
+
 <body>
     <div class="box" onmousedown="Mdown(this)" onmouseup="Mup(this)">Click Me</div>
 
     <script>
-        function Mdown(obj){
+        function Mdown(obj) {
             obj.style.backgroundColor = "#5bac0e";
             obj.innerHTML = "Release Me"
         }
 
-        function Mup(obj){
+        function Mup(obj) {
             obj.style.backgroundColor = "#c61209";
             obj.innerHTML = "Press Me"
         }
     </script>
 </body>
+
 </html>

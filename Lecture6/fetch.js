@@ -8,26 +8,26 @@ const { use } = require("react");
 
 //  Basic Syntax:
 fetch(URL, Options)
-.then((response) => {
-    // handle response from api
-    return response
-})
-.catch(error => {
-    // handle any errors
-    console.error(error);
-});
+    .then((response) => {
+        // handle response from api
+        return response
+    })
+    .catch(error => {
+        // handle any errors
+        console.error(error);
+    });
 
 // Simple Example – GET Request
 fetch('https://api.example.com/data')
-.then(response => {
-    response.json(); // parse JSON from the response
-})
-.then(data => {
-    console.log(data); // use the data
-})
-.catch(error => {
-    console.error("ERROR:-", error)
-});
+    .then(response => {
+        response.json(); // parse JSON from the response
+    })
+    .then(data => {
+        console.log(data); // use the data
+    })
+    .catch(error => {
+        console.error("ERROR:-", error)
+    });
 
 // POST Request with JSON Body
 fetch('https://api.example.com/data', {
@@ -40,13 +40,13 @@ fetch('https://api.example.com/data', {
         age: 21
     })
 })
-.then(response => response.json())
-.then(data => {
-    console.log("User created",data)
-})
-.catch(error => {
-    console.error("ERROR:-", error);
-});
+    .then(response => response.json())
+    .then(data => {
+        console.log("User created", data)
+    })
+    .catch(error => {
+        console.error("ERROR:-", error);
+    });
 
 //* Notes:
 //* fetch() does not reject on HTTP errors like 404 or 500. You need to manually check response.ok.
@@ -57,7 +57,7 @@ async function getUser() {
     try {
         const response = await fetch('https://api.example.com/data');
 
-        if(!response.ok){
+        if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 

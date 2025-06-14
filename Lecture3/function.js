@@ -3,7 +3,7 @@ function addNumber(num1, num2) {
     return num1 + num2;
 }
 
-const result = addNumber(5,5);
+const result = addNumber(5, 5);
 // console.log(result);
 
 const user1 = {
@@ -21,7 +21,7 @@ const user3 = {
     age: 18
 };
 
-function anyObject(userinfo){
+function anyObject(userinfo) {
     return `My name is ${userinfo.username} and my age is ${userinfo.age}`
 }
 // console.log(anyObject(user1))
@@ -30,7 +30,7 @@ function anyObject(userinfo){
 
 const myArr = ["Sania", "Faizan", "Zara"];
 
-function returnNewArr(getArr){
+function returnNewArr(getArr) {
     return getArr[1];
 }
 
@@ -40,12 +40,12 @@ const results = returnNewArr(myArr);
 
 //? SCOPE
 // console.log(addTwo(5)); //! Error:- Cannot use before initialization
-const addTwo = function(num){
+const addTwo = function (num) {
     return num + 2;
 };
 
 // console.log(addNum(2,3)); //! Doesn't give error because function doesn't declare by any variable
-function addNum(num1, num2){
+function addNum(num1, num2) {
     return num1 + num2 + 1
 }
 
@@ -62,7 +62,7 @@ const addNumb = (num1, num2, num3) => (num1 + num2 + num3);
 const admin = {
     ussername: "Faizan",
     password: "Md@44faizan",
-    welcomeMessage: function(){
+    welcomeMessage: function () {
         console.log(`${this.ussername}, just logged in new device and created new password ${this.password}`)
     }
 }
@@ -74,7 +74,7 @@ const admin = {
 // admin.password = "sidd@44zara";
 // admin.welcomeMessage();
 
-function chai(){
+function chai() {
     let ussername = "Faizan";
     console.log(ussername);
     console.log(this.ussername);
@@ -130,7 +130,7 @@ chai2();
 
 let sum = (num1, num2) => (num1 + num2);
 
-let total = sum(2,4);
+let total = sum(2, 4);
 // console.log(total);
 
 const handleObject = () => {
@@ -151,7 +151,7 @@ const handleObject = () => {
 
 
 // Regular function without parameter
-(function(){
+(function () {
     // console.log("This is an IIFE expression");
 })();
 
@@ -161,7 +161,7 @@ const handleObject = () => {
 })("Faizan");
 
 // Arrow function
-( () => {
+(() => {
     // console.log("This is an IIFE expression in arrow function");
 })();
 
@@ -176,15 +176,15 @@ const counter = (() => {
     let count = 0;
 
     return {
-        increment: function(){
+        increment: function () {
             count++;
             console.log(`Count: ${count}`);
         },
-        decrement: function(){
+        decrement: function () {
             count--;
             console.log(`Count: ${count}`);
         },
-        getCount: function(){
+        getCount: function () {
             return count;
         }
     }
@@ -203,9 +203,9 @@ const counter = (() => {
 
 //? Use a Regular function for counting to avoid confusion between IIFE execution and regular function only difference between is paranthesis() for invoking the iife.
 
-function createCount () {
+function createCount() {
     let count = 0;
-    return{
+    return {
         increment: () => `Count: ${++count}`,
         decrement: () => `Count: ${--count}`,
         getCount: () => `Count: ${count}`
@@ -217,13 +217,13 @@ let counters = createCount();
 // console.log(counters.increment());
 // console.log(counters.increment());
 
-(function MycreateCount(){
+(function MycreateCount() {
     let count = 0;
 
-    return{
+    return {
         increment: () => {
             console.log(`Count: ${++count}`);
-            },
+        },
         decrement: () => {
             console.log(`Count: ${--count}`);
         },
@@ -268,7 +268,7 @@ let c = 6;
 //* Function declaration and Function Expression
 
 // Function Declaration
-function sayHello(){
+function sayHello() {
     console.log("Hello")
 }
 
@@ -277,12 +277,12 @@ function sayHello(){
 // Hoisted: Can be called before its definition in the code.
 greet();
 
-function sayHello(greet){
+function sayHello(greet) {
     console.log("Hi there!")
 }
 
 // Function Expression
-const sayHello = function(){
+const sayHello = function () {
     console.log("Hello");
 }
 
@@ -297,7 +297,7 @@ const sayGreet = () => {
 // Not hoisted: You must define it before using it.
 greet(); //ReferenceError: Cannot access 'greet' before intialization
 
-const greet = function(){
+const greet = function () {
     console.log("Hello")
 }
 

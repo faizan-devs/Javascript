@@ -2,17 +2,17 @@
 //? Encapsulation is an object-oriented programming concept where data (properties) and methods (functions) are bundled together, and direct access to some parts of the object is restricted to prevent unintended interference.
 
 // 1. Encapsulation Using Closures (Pre-ES6 Style)
-function Person(name, age){
+function Person(name, age) {
     let _age = age; // Private variable using closure
 
     this.name = name;
 
-    this.getAge = function(){
+    this.getAge = function () {
         return _age;
     };
 
-    this.setAge = function(newAge){
-        if(newAge > 0){
+    this.setAge = function (newAge) {
+        if (newAge > 0) {
             _age = newAge;
         }
     };
@@ -28,15 +28,15 @@ const person = new Person("Alice", 25);
 class Car {
     #mileage = 0; // Private fields with #
 
-    constructor(brand){
+    constructor(brand) {
         this.brand = brand;
     }
 
-    drive(km){
-        if(km > 0) this.#mileage += km;
+    drive(km) {
+        if (km > 0) this.#mileage += km;
     }
 
-    getMileage(){
+    getMileage() {
         return this.#mileage;
     }
 }
@@ -49,13 +49,13 @@ console.log(myCar.getMileage());
 //  3. Encapsulation Using Symbols (Less Common)
 const _salary = Symbol('symbol');
 
-class Employee{
-    constructor(name, salary){
+class Employee {
+    constructor(name, salary) {
         this.name = name;
         this[_salary] = salary;
     }
 
-    getSalary(){
+    getSalary() {
         return this[_salary];
     }
 }
@@ -89,36 +89,36 @@ console.log(emp._salary); // undefined
 //? Helps enforce business rules and constraints.
 
 // Example: Using Private Fields
-class BankAccount{
+class BankAccount {
     // Private field
     #balance;
 
-    constructor(initialBalance){
+    constructor(initialBalance) {
         this.#balance = initialBalance;
     }
 
     // Public method to deposit
-    deposit(amount){
-        if(amount > 0){
+    deposit(amount) {
+        if (amount > 0) {
             this.#balance += amount;
             console.log(`Deposit Amount: ${amount}. New Balance: ${this.#balance}`)
-        }else{
+        } else {
             console.log(`Deposit amount must be positive`);
         }
     }
 
     // Public method to withdraw
-    withdraw(amount){
-        if(amount <= this.#balance){
+    withdraw(amount) {
+        if (amount <= this.#balance) {
             this.#balance -= amount;
             console.log(`Withdraw Amount: ${amount}. New Balance: ${this.#balance}`)
-        }else{
+        } else {
             console.log("Insufficient balance")
         }
     }
 
     // Public method to get balance
-    getBalance(){
+    getBalance() {
         return `Available balance: ${this.#balance}`;
     }
 }

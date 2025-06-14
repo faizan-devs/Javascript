@@ -161,11 +161,11 @@ const hello = runOnce(() => console.log("Hello"));
 // hello(); // Hello
 // hello(); // Nothing
 
-function runNTimes(fn, n){
+function runNTimes(fn, n) {
     let count = 0;
 
-    return function() {
-        if(count < n){
+    return function () {
+        if (count < n) {
             count++;
             console.log("Call:-", count)
             fn();
@@ -180,15 +180,15 @@ const counts = runNTimes(() => console.log("I Love Zara"), 3);
 // counts(); // does nothing (limit reached)
 
 //* Here’s how you could modify it to return how many calls are left:
-function runNTimes(fn, n){
+function runNTimes(fn, n) {
     let count = 0;
 
     return function () {
-        if(count < n){
+        if (count < n) {
             count++;
             fn();
             console.log(`${n - count} calls left.`);
-        }else {
+        } else {
             console.log("No more calls allowed.");
         }
     };
@@ -226,8 +226,8 @@ const add5 = createAdder(5);
 
 // When add5(20) runs, it uses that captured x = 5 with y = 20
 
-function greet(name){
-    return function() {
+function greet(name) {
+    return function () {
         console.log("You just logged in", name)
     };
 }

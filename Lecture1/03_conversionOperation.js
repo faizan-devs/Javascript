@@ -121,12 +121,12 @@ console.log(z);
 let x = 2;
 let y = "2"
 // x+=y;
-x-=y;
+x -= y;
 console.log(x);
 
 let str = "hello ";
 let str1 = "world";
-str+=str1
+str += str1
 console.log(str);
 
 let num2 = ((5 + 2) * 10) / 7;
@@ -218,7 +218,7 @@ console.log(typeof {});      // "object"
 console.log(typeof []);      // "object" (arrays are objects)
 console.log(typeof null);    // "object" (historical JS bug)
 console.log(typeof undefined); // "undefined"
-console.log(typeof function() {}); // "function"
+console.log(typeof function () { }); // "function"
 
 // void Operator
 // Evaluates an expression and returns undefined (often used to prevent returning a value).

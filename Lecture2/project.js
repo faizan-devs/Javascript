@@ -1,16 +1,16 @@
 //* ARRAY
 
 let students = [
-    {name: "Faizan", grade: 80},
-    {name: "Sania", grade: 95},
-    {name: "Zara", grade: 87},
-    {name: "Sahil", grade: 55},
-    {name: "Uzair", grade: 45},
-    {name: "Furqaan", grade: 77},
-    {name: "Danish", grade: 27},
-    {name: "Iqra", grade: 66},
-    {name: "Karan", grade: 63},
-    {name: "Rahul", grade: 88}
+    { name: "Faizan", grade: 80 },
+    { name: "Sania", grade: 95 },
+    { name: "Zara", grade: 87 },
+    { name: "Sahil", grade: 55 },
+    { name: "Uzair", grade: 45 },
+    { name: "Furqaan", grade: 77 },
+    { name: "Danish", grade: 27 },
+    { name: "Iqra", grade: 66 },
+    { name: "Karan", grade: 63 },
+    { name: "Rahul", grade: 88 }
 ];
 
 // let highScores = students.filter(myStudent);
@@ -34,14 +34,14 @@ let names = ["Sania", "Faizan", "Zara", "Furqaan", "Ayysha"];
 // let newNames = names.filter(name => name.length > 5);
 // console.log(newNames);
 
-let newNames = names.filter(function(name){return name.length > 5});
+let newNames = names.filter(function (name) { return name.length > 5 });
 console.log(newNames);
 
 //? Regular Function
 // let newNames = names.filter(myNames);
 // console.log(newNames);
 
-function myNames(name){
+function myNames(name) {
     return name.length > 5;
 }
 
@@ -80,9 +80,9 @@ function myNums(number) {
 let name = "Zara";
 let age = "18";
 
-let user = {name, age};
+let user = { name, age };
 // console.log(user);
 
 //? Object adding property in object 
-let users = {...user, height: "5ft"}
+let users = { ...user, height: "5ft" }
 // console.log(users);

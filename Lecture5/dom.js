@@ -163,7 +163,7 @@ shadow.innerHTML = `<style>:host { color: red; }</style><p>Hello</p>`;
 //* A NodeList object is a list (collection) of nodes extracted from a document.
 //* A NodeList object is almost the same as an HTMLCollection object.
 //* Some (older) browsers return a NodeList object instead of an HTMLCollection for methods like getElementsByClassName().
-//* All browsers return a NodeList object for the property childNodes. 
+//* All browsers return a NodeList object for the property childNodes.
 //* Most browsers return a NodeList object for the method querySelectorAll().
 //* The following code selects all <p> nodes in a document:
 
@@ -181,4 +181,3 @@ shadow.innerHTML = `<style>:host { color: red; }</style><p>Hello</p>`;
 // The getElementsByClassName() and getElementsByTagName() methods return a live HTMLCollection.
 // The querySelectorAll() method returns a static NodeList.
 // The childNodes property returns a live NodeList.
-

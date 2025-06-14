@@ -1,5 +1,5 @@
-console.log(typeof(new Date())); // Object
-console.log(typeof(Date())); // String
+console.log(typeof (new Date())); // Object
+console.log(typeof (Date())); // String
 
 // Creating a Date Object
 // let date1 = new Date(); // Current date and time

@@ -94,16 +94,16 @@ let some_numb = new_numb.flat(Infinity);
 // console.log(some_numb);
 // console.log(new_numb);
 
-console.log(Array.from({name:"faizan", age:20}));
+console.log(Array.from({ name: "faizan", age: 20 }));
 // this give empty array because we not convert object directly into aray because the object does not have a length property, Array.from() has no way to convert it into an array.
 // Objects are not iterable by default.
 // A plain object { name: "faizan" } is neither iterable nor array-like, so Array.from() returns an empty array ([]).
 
 // Arraylike object
-let new_Arr = {0:"a", 1:"b", 2:"c", length: 3};
+let new_Arr = { 0: "a", 1: "b", 2: "c", length: 3 };
 // console.log(Array.from(new_Arr));
 
-const newArr2 = {a: 0, b: 1, c: 2, length: 3};
+const newArr2 = { a: 0, b: 1, c: 2, length: 3 };
 // console.log(Array.from(newArr2));
 
 // Since Array.from() does not work on plain objects, you can manually extract values, keys, or entries:

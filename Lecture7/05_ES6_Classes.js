@@ -4,13 +4,13 @@
 //? A class is a blueprint for creating objects. It can contain properties (data) and methods (functions) related to that object.
 
 // 2. Creating a Class
-class Person{
-    constructor(name, age){
+class Person {
+    constructor(name, age) {
         this.name = name;
         this.age = age
     }
 
-    greet(){
+    greet() {
         console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old`)
     }
 }
@@ -25,13 +25,13 @@ person1.greet();
 //*  4. Inheritance (Extending a Class)
 //? You can create a child class that inherits from a parent class using extends.
 
-class Student extends Person{
-    constructor(name, age, grade){
+class Student extends Person {
+    constructor(name, age, grade) {
         super(name, age); // Call the parent constructor
         this.grade = grade;
     }
 
-    study(){
+    study() {
         console.log(`${this.name} is studying in grade ${this.grade}`);
     }
 }
@@ -50,8 +50,8 @@ student1.study();
 // Instance Methods	|| Functions defined inside the class.
 // Static Methods	|| Functions defined with static (not tied to object).
 
-class MathHelper{
-    static square(x){
+class MathHelper {
+    static square(x) {
         return x * x;
     }
 }
@@ -63,22 +63,22 @@ class MathHelper{
 // Better organization of code.
 // Familiar structure for developers from other OOP languages.
 
-class BankAccount{
-    constructor(owner, balance){
+class BankAccount {
+    constructor(owner, balance) {
         this.owner = owner;
         this.balance = balance;
     }
 
-    deposit(amount){
+    deposit(amount) {
         this.balance += amount;
         console.log(`Deposited ₹${amount}. New Balance: ₹${this.balance}`)
     }
 
-    withdraw(amount){
-        if(amount <= this.balance){
+    withdraw(amount) {
+        if (amount <= this.balance) {
             this.balance -= amount;
             console.log(`Withdraw ₹${amount}. New Balance: ₹${this.balance}`);
-        }else{
+        } else {
             console.log("Insufficient funds!")
         }
     }

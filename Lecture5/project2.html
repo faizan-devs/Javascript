@@ -11,7 +11,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
             font-family: 'roboto', sans-serif;
@@ -100,7 +100,8 @@
             border: 1px solid #e0e0e0;
         }
 
-        #bmi-guide h3, #bmi-guide h4 {
+        #bmi-guide h3,
+        #bmi-guide h4 {
             color: #333;
             margin-bottom: 10px;
         }
@@ -151,27 +152,27 @@
         // Use addEventListener('submit') approach (current one).
         // Improve your if-else ladder to avoid logic bugs.
         // Keep JavaScript out of HTML as much as possible for a clean structure.
-        
+
         const form = document.querySelector("form")
         const restartBtn = document.getElementById('btn');
 
-        function calculateBmi(){
+        function calculateBmi() {
             const height = parseFloat(document.querySelector('#height').value);
             const weight = parseFloat(document.querySelector('#weight').value);
             const result = document.querySelector('#result');
 
-            if(isNaN(height) || height <= 0){
+            if (isNaN(height) || height <= 0) {
                 result.innerHTML = `Enter valid height`;
-            }else if(isNaN(weight) || weight <= 0 ){
+            } else if (isNaN(weight) || weight <= 0) {
                 result.innerHTML = `Enter valid weight`;
-            }else{
+            } else {
                 const bmi = (weight / ((height * height) / 10000)).toFixed(2);
                 result.innerHTML = `Your BMI is ${bmi}`
             }
             restartBtn.style.display = "block";
         }
 
-        function restartbtn () {
+        function restartbtn() {
             form.reset()
             // document.querySelector('#height').value = "";
             // document.querySelector('#weight').value = "";

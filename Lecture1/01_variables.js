@@ -30,10 +30,10 @@ console.table([password, adminName, isLoggedInTime, adminLoggedIn, city, state, 
 
 
 //* Correct version more readable and not unecessary outer loop
-function writeTable(num){
+function writeTable(num) {
     let result = '';
-    for(let j = 1; j <= 10; j++){
-        result += `${num} * ${j} = ${num*j}\n`
+    for (let j = 1; j <= 10; j++) {
+        result += `${num} * ${j} = ${num * j}\n`
     }
     return result;
 }
