@@ -37,6 +37,12 @@ let user = (typeof name === "string") ? "a string" : "Not a string"
 console.log(user);
 console.log(typeof user);
 
+let str = "John";
+let str2 = new String("John");
+console.log(typeof (str))
+console.log(typeof (str2))
+console.log("Check: ", str == str2)
+console.log("Check: ", str === str2)
 
 const voteable = (age < 18) ? "Too young" : "Old enough";
 console.log(voteable);
