@@ -3,8 +3,6 @@ let newArr = [1, 2, 3, 4, 5, 6]
 // console.log(newArr[3]);
 // console.log(newArr.join()); // this method return a string
 
-
-
 let anotherArray = newArr.flat(Infinity);
 // console.log(anotherArray);
 
