@@ -64,12 +64,15 @@ switch (new Date(Date.now()).getDay()) {
         break;
 };
 
-// switch (new Date(2018, 10, 24).getDay()) {
+// switch (new Date(2003, 9, 16).getDay()) {
 //     case 6:
 //         console.log(`Today is Saturday`)
 //         break;
 //     case 0:
 //         console.log(`Today is Sunday`)
+//         break;
+//     case 4:
+//         console.log(`Today is Thursday`)
 //         break;
 //     default:
 //         console.log(`Looking forward for the weekend`)
