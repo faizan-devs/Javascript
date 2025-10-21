@@ -88,3 +88,14 @@ switch (new Date(Date.now()).getDay()) {
     default:
         console.log(`Looking forward for the weekend`)
 }
+
+// Nullish Coalescing Operator
+let name = undefined;
+console.log(name ?? "Guest");
+
+let name2 = "Sania";
+console.log(name2 ?? "Guest");
+
+// Ternary Operator
+let bookPrice = 2400;
+(bookPrice >= 2000) ? console.log("Expensive Book") : console.log("Expensive Book");
