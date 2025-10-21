@@ -40,7 +40,7 @@ function member(isProUser) {
 // console.log(member(undefined));
 
 // Switch
-switch (new Date(2018, 10, 24).getDay()) {
+switch (new Date(Date.now()).getDay()) {
     case 0:
         console.log("Sunday")
         break;
@@ -64,7 +64,18 @@ switch (new Date(2018, 10, 24).getDay()) {
         break;
 };
 
-switch (new Date(2018, 10, 24).getDay()) {
+// switch (new Date(2018, 10, 24).getDay()) {
+//     case 6:
+//         console.log(`Today is Saturday`)
+//         break;
+//     case 0:
+//         console.log(`Today is Sunday`)
+//         break;
+//     default:
+//         console.log(`Looking forward for the weekend`)
+// }
+
+switch (new Date(Date.now()).getDay()) {
     case 6:
         console.log(`Today is Saturday`)
         break;
