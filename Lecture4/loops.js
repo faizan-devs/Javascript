@@ -133,3 +133,32 @@ const student = {
 for (let key in student) {
     // console.log(key,":", student[key]);
 }
+
+// ForEach
+const coding = ["JS", "RUBY", "JAVA", "PYTHON"];
+coding.forEach((item, index, arr) => {
+    console.log(item, index, arr);
+});
+
+const myCoding = [
+    {
+        language: "Javascript",
+        fileName: "js"
+    },
+    {
+        language: "Ruby",
+        fileName: "rb"
+    },
+    {
+        language: "Python",
+        fileName: "py"
+    },
+    {
+        language: "Typescript",
+        fileName: "ty"
+    }
+];
+
+myCoding.forEach((item) => {
+    console.log(item.fileName);
+});
