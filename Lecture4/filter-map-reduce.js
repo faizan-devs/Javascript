@@ -61,4 +61,26 @@ const myObj = [
 ];
 
 const myCart = myObj.reduce((acc, item) => acc + item.price, 0);
-console.log(myCart);
+// console.log(myCart);
+
+function splitPairs(str){
+    if(str.length % 2 !== 0){
+        str += '_'; 
+    }
+    let result = [];
+    for(let i = 0; i < str.length; i+=2){
+        result.push(str[i] + str[i + 1]);
+    }
+    return result;
+}
+
+// console.log(splitPairs('abcdef'));
+
+let str = "aavvbbs";
+let results = [];
+if(str.length % 2) str += "_";
+for(let i = 0; i < str.length; i += 2){
+    results.push(str[i] + str[i + 1]);
+}
+
+console.log(results);
