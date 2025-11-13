@@ -338,3 +338,52 @@ const handler = {
 const user = new Proxy({ name: "Charlie" }, handler);
 console.log(user.name);
 user.name = "David";
+
+//? Practical use case of getter and setter methods in JS
+// Getters and setters in JavaScript provide a mechanism to control how object properties are accessed and modified, offering practical benefits in several scenarios:
+
+//? 1. Data Validation and Encapsulation:
+//* Setters for Validation: Setters allow you to implement validation logic when a property is assigned a new value. This ensures data integrity by preventing invalid data from being stored. For example, you could ensure a birthDate is a valid Date object or that an age is a positive number.
+/*
+class User {
+    #_age; // Private property using ES2022 private class fields
+
+    set age(value) {
+        if (typeof value !== 'number' || value < 0) {
+            throw new Error("Age must be a non-negative number.");
+        }
+        this.#_age = value;
+    }
+
+    get age() {
+        return this.#_age;
+    }
+}
+const user = new User();
+user.age = 30; // Valid
+user.age = -5; // Throws an error
+*/
+// Encapsulation: Getters and setters can encapsulate the internal representation of data, allowing you to change how a property is stored or calculated without affecting the external interface. This promotes cleaner code and easier maintenance.
+
+//? 2. Computed Properties:
+//* Getters for Calculated Values: Getters can be used to define properties whose values are computed dynamically based on other properties, rather than being stored directly. This keeps the data consistent and avoids redundant storage.
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+const person = new Person("John", "Doe");
+console.log(person.fullName); // Outputs: "John Doe"
+
+//? 3. Side Effects on Access or Modification:
+//* Performing Actions: Getters and setters can trigger side effects when a property is accessed or modified. For instance, a setter could update a UI element or log a change, while a getter could increment a counter for property access tracking.
+
+//? 4. Abstraction and Simplified Interfaces:
+//* Hiding Implementation Details: They allow you to present a simple, property-like interface to the user while complex logic or data retrieval happens behind the scenes. This can make your objects easier to understand and use.
+
+// In summary, getters and setters are valuable tools for enhancing data integrity, managing computed values, and controlling the behavior of object properties in JavaScript.
