@@ -257,3 +257,84 @@ console.log(letStringPairs("aabcdeefg"));
 // i = 0 → "a" + "b" → "ab" → result = ["ab"]
 // i = 2 → "c" + "d" → "cd" → result = ["ab", "cd"]
 // i = 4 → "e" + "_" → "e_" → result = ["ab", "cd", "e_"]
+
+//? Alternate of Getter and Setter in JS
+
+//? 1. Direct Public Properties:
+//* For simple cases where no validation, transformation, or side effects are needed, directly exposing properties as public is the most straightforward approach.
+class User {
+  constructor(name) {
+    this.name = name; // Direct public property
+  }
+}
+
+const user = new User("Alice");
+console.log(user.name); // Access directly
+user.name = "Bob"; // Modify directly
+
+//? 2. Methods for Behavior (Instead of State Exposure):
+//* Instead of exposing raw data through getters and setters, provide methods that represent the behavior or actions an object can perform. This encapsulates internal state and logic.
+class BankAccount {
+  #balance; // Private field
+
+  constructor(initialBalance) {
+    this.#balance = initialBalance;
+  }
+
+  deposit(amount) {
+    if (amount > 0) {
+      this.#balance += amount;
+    }
+  }
+
+  withdraw(amount) {
+    if (amount > 0 && amount <= this.#balance) {
+      this.#balance -= amount;
+      return true;
+    }
+    return false;
+  }
+
+  getBalance() { // A method to get a value, but focused on the action
+    return this.#balance;
+  }
+}
+
+const account = new BankAccount(100);
+account.deposit(50);
+account.withdraw(20);
+console.log(account.getBalance());
+
+//? 3. Immutability and Functional Approaches:
+//* Instead of modifying an object's state, create new objects with the desired changes. This promotes predictable state management and can be beneficial in complex applications.
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  moveBy(dx, dy) {
+    return new Point(this.x + dx, this.y + dy); // Returns a new Point
+  }
+}
+
+const p1 = new Point(1, 2);
+const p2 = p1.moveBy(3, 4); // p1 remains unchanged
+console.log(p1, p2);
+
+//? 4. ES6 Proxies:
+//* Proxies offer a powerful mechanism to intercept and customize fundamental operations for objects, including property access, assignment, and method invocation. This can be used to implement custom logic for "getting" and "setting" properties in a more dynamic and centralized way than individual getters/setters.
+const handler = {
+  get(target, property, receiver) {
+    console.log(`Getting property: ${property}`);
+    return Reflect.get(target, property, receiver);
+  },
+  set(target, property, value, receiver) {
+    console.log(`Setting property: ${property} to ${value}`);
+    return Reflect.set(target, property, value, receiver);
+  }
+};
+
+const user = new Proxy({ name: "Charlie" }, handler);
+console.log(user.name);
+user.name = "David";
