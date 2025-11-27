@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 console.log(typeof (new Date())); // Object
 console.log(typeof (Date())); // String
 
@@ -75,3 +77,116 @@ let day = weekDay[d.getDay()];
 
 let month = months[d.getMonth()];
 // console.log(month);
+
+//* CODE
+function fetchData(url, cb) {
+    setTimeout(() => {
+        const data = `Data from ${url}`;
+        cb(data);
+    }, 2000);
+}
+
+function processData(receivedData) {
+    console.log("Processing:", receivedData);
+}
+
+fetchData("https://api.github.com/users/faizan-devs", processData);
+console.log("Request sent...")
+
+
+//* CALLBACK VERSION
+function fetchData(url, callback) {
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            callback(data);
+        })
+        .catch(err => console.error("Error", err));
+}
+
+function processData(receivedData) {
+    console.log("Username:", receivedData.name);
+}
+
+fetchData("https://api.github.com/users/faizan-devs", processData);
+console.log("Request sent...");
+
+//* PROMISE VERSION
+// fetch(url) is already a Promise using Promises even if you don’t write the word “Promise”.
+function fetchData(url) {
+    return fetch(url)
+        .then(response => response.json())
+        .then(data => data);
+}
+
+fetchData("https://api.github.com/users/faizan-devs")
+    .then(result => {
+        console.log("Pokemon Name:", result.name);
+    })
+    .catch(err => {
+        console.error("Error:", err)
+    });
+
+console.log("Request Sent...")
+
+//* new Promise Keyword
+function fetchData(url) {
+    return new Promise((resolve, reject) => {
+
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    reject("Network response not ok");
+                }
+                return response.json();
+            })
+            .then(data => resolve(data))
+            .catch(error => reject(error));
+    });
+}
+
+fetchData("https://api.github.com/users/faizan-devs")
+    .then(result => {
+        console.log("Username", result.login)
+    })
+    .catch(err => {
+        console.error("Error", err);
+    });
+console.log("Request sent...")
+
+//* ASYNC / AWAIT
+async function fetchData(url) {
+    const res = await fetch(url);
+    const data = await res.json;
+    return data;
+}
+
+async function main() {
+    const result = await fetchData("https://api.github.com/users/faizan-devs")
+    console.log("Repo Count:", result.public_repos);
+}
+
+main();
+console.log("Request sent...")
+
+//* REAL WORLD VERSION ASYNC / AWAIT
+async function fetchDataReal(url) {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("Networl response not ok");
+    return await res.json();
+}
+
+async function main() {
+    console.log("Request sent...");
+    try {
+        const user = await fetchDataReal("https://api.github.com/users/faizan-devs");
+
+        const created = new Date(user.created_at);
+        console.log(`Account Created: ${created.toLocaleString()}`);
+
+    } catch (err) {
+        console.error("Fetch Error:", err)
+    }
+}
+
+main();
