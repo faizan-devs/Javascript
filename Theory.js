@@ -1,6 +1,48 @@
 //* Lexical scope: defines where variables are accessible based on code structure.
 //* Closures: leverage lexical scope to enable functions to remember and access variables from their parent scope, even after the parent function has completed execution. Closures are a powerful feature for data encapsulation and creating private state in JavaScript.
 
+//* JS Callback
+/*
+In JavaScript, a callback function is a function that is passed as an argument to another function, with the intention of being executed at a later time. The function that receives the callback as an argument is often referred to as a higher-order function. 
+Key Characteristics:
+Passed as an argument: The callback function is literally passed into another function's parameter list.
+Executed later: The higher-order function determines when and how to invoke the callback. This can be immediately (synchronous) or after some asynchronous operation has completed (asynchronous).
+Enables asynchronous programming: Callbacks are fundamental for handling operations that don't complete immediately, such as fetching data from a server, reading files, or responding to user input (like button clicks).
+function greet(name, callback) {
+  const message = `Hello, ${name}!`;
+  callback(message); // The callback is executed immediately
+}
+
+function displayGreeting(greeting) {
+  console.log(greeting);
+}
+
+greet("Alice", displayGreeting); // Output: Hello, Alice!
+In this example, displayGreeting is the callback function, passed to greet. greet then calls displayGreeting immediately with the message.
+
+Example of an Asynchronous Callback:
+function fetchData(url, callback) {
+  Simulate an asynchronous operation like fetching data from an API
+  setTimeout(() => {
+    const data = `Data from ${url}`;
+    callback(data); // The callback is executed after a delay
+  }, 2000); // 2-second delay
+}
+
+function processData(receivedData) {
+  console.log(`Processing: ${receivedData}`);
+}
+
+fetchData("https://example.com/api/data", processData);
+console.log("Request sent..."); // This will log before the data is processed
+Here, processData is the callback. It will be executed only after the setTimeout function completes its delay, demonstrating an asynchronous pattern.
+
+Why use Callbacks?
+Asynchronous operations: Essential for non-blocking operations, preventing the main thread from freezing while waiting for long-running tasks.
+Event handling: Used extensively in event listeners (e.g., addEventListener) to define what happens when an event occurs.
+Customizable behavior: Allows higher-order functions to perform a generic task, while the specific action to be taken is defined by the callback provided by the user.
+*/
+
 //* Is JavaScript is object-oriented programming language
 /*
 JavaScript is not a class-based object-oriented language in the traditional sense, like Java or C++. Instead, it is a prototype-based object-oriented language. This means that objects inherit properties and methods directly from other objects (their prototypes), rather than from classes.
@@ -81,6 +123,3 @@ In essence, the event loop acts as an orchestrator, ensuring that JavaScript's s
 https://www.geeksforgeeks.org/javascript/what-is-an-event-loop-in-javascript/
 */
 
-(() => {
-console.log("Hello world"); 
-});
