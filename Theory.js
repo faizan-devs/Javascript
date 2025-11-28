@@ -110,6 +110,7 @@ Stack Overflow: If a function calls itself recursively without a proper exit con
 //* JS Event Loop
 /*
 The event loop in JavaScript is a crucial mechanism that enables asynchronous programming in a single-threaded environment. It allows JavaScript to handle multiple tasks, such as user interactions, network requests, and timers, without blocking the main thread and making the application unresponsive.
+
 Here's how the event loop works:
 Call Stack: This is where synchronous JavaScript code is executed. When a function is called, it's pushed onto the stack, and when it returns, it's popped off.
 Web APIs (or Node.js APIs): When an asynchronous operation (like setTimeout, fetch, or DOM events) is encountered, it's offloaded to the browser's Web APIs (or Node.js APIs) to be handled in the background. This allows the main thread to continue executing other synchronous code.
@@ -123,3 +124,88 @@ In essence, the event loop acts as an orchestrator, ensuring that JavaScript's s
 https://www.geeksforgeeks.org/javascript/what-is-an-event-loop-in-javascript/
 */
 
+//* Real backend breakdown with examples
+/*
+1) When to use CALLBACKS in backend? (Rare cases)
+Use callbacks ONLY when:
+
+✔ Working with libraries that support only callbacks
+
+Examples:
+fs.readFile("x.txt", callback) — old Node.js API
+Some legacy, old codebases
+Event-driven streams (e.g., http.createServer(() => {...}))
+
+✔ You need high-performance streaming code
+Callbacks avoid Promise overhead in ultra-high-performance paths.
+
+✔ Middleware style (Express.js)
+Express routes:
+app.get("/user", (req, res) => { 
+  // callback function
+});
+
+This is callback-style because Express designed it that way.
+
+2) When to use PROMISES (.then()) in backend?
+Use Promises when:
+
+✔ You want clean chaining
+Example:
+When doing multiple async operations in sequence:
+
+getUser()
+  .then(getOrders)
+  .then(getPayments)
+  .then(sendResponse)
+  .catch(handleError);
+
+✔ You're writing helper functions
+Promise-returning function example:
+
+function getUser(id) {
+  return User.findById(id);  // returns a Promise
+}
+
+✔ When using older libraries that provide Promises
+Examples:
+Mongoose Queries
+AWS SDK v2
+Some external HTTP libraries
+
+✔ When integrating into Promise-based ecosystems
+Example:
+Using .all(), .race(), .any():
+Promise.all([getUser(), getOrders(), getPayments()]);
+
+3) When to use ASYNC / AWAIT? (Almost ALWAYS)
+This is the best approach for backend development.
+
+Use async/await when:
+
+✔ You write route handlers
+app.get("/user/:id", async (req, res) => {
+    const user = await User.findById(req.params.id);
+    res.json(user);
+});
+
+✔ You write business logic services
+async function createOrder(data) {
+    const user = await User.findById(data.userId);
+    const payment = await makePayment(data.amount);
+    return saveOrder(user, payment);
+}
+
+✔ You want clean, readable, error-handled code
+try {
+    const data = await fetch(url);
+} catch (err) {
+    console.error(err);
+}
+
+✔ You want synchronous-looking flow with async power
+This makes backend code maintainable.
+
+✔ You are writing large backend systems
+Async/await is far easier to scale and debug.
+*/
