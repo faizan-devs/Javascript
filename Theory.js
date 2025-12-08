@@ -58,13 +58,12 @@ function displayResult(result) {
 
 processData("hello world", displayResult);
 // Output after 1 second: "The processed data is: HELLO WORLD"
-
 In this example:
 processData is the higher-order function that takes data and a callback function.
 displayResult is the callback function that will be executed after processData has finished its simulated asynchronous operation.
 processData calls callback(processedResult) once the data is processed, passing the result to displayResult.
-
 Importance:
+
 Callbacks are a cornerstone of JavaScript development, enabling flexible, non-blocking, and event-driven programming, which is essential for building modern web applications. While promises and async/await offer more structured ways to handle asynchronous operations, understanding callbacks is fundamental to comprehending the underlying principles of asynchronous JavaScript.
 */
 
