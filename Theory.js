@@ -43,6 +43,31 @@ Event handling: Used extensively in event listeners (e.g., addEventListener) to 
 Customizable behavior: Allows higher-order functions to perform a generic task, while the specific action to be taken is defined by the callback provided by the user.
 */
 
+/*
+function processData(data, callback) {
+  // Simulate some asynchronous operation, like fetching data
+  setTimeout(() => {
+    const processedResult = data.toUpperCase(); // Example processing
+    callback(processedResult); // Call the callback with the result
+  }, 1000);
+}
+
+function displayResult(result) {
+  console.log("The processed data is:", result);
+}
+
+processData("hello world", displayResult);
+// Output after 1 second: "The processed data is: HELLO WORLD"
+
+In this example:
+processData is the higher-order function that takes data and a callback function.
+displayResult is the callback function that will be executed after processData has finished its simulated asynchronous operation.
+processData calls callback(processedResult) once the data is processed, passing the result to displayResult.
+
+Importance:
+Callbacks are a cornerstone of JavaScript development, enabling flexible, non-blocking, and event-driven programming, which is essential for building modern web applications. While promises and async/await offer more structured ways to handle asynchronous operations, understanding callbacks is fundamental to comprehending the underlying principles of asynchronous JavaScript.
+*/
+
 //* Is JavaScript is object-oriented programming language
 /*
 JavaScript is not a class-based object-oriented language in the traditional sense, like Java or C++. Instead, it is a prototype-based object-oriented language. This means that objects inherit properties and methods directly from other objects (their prototypes), rather than from classes.
@@ -209,3 +234,5 @@ This makes backend code maintainable.
 ✔ You are writing large backend systems
 Async/await is far easier to scale and debug.
 */
+
+//* Ca
