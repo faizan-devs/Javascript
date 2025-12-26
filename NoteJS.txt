@@ -3,12 +3,14 @@ TYPES OF PROGRAMMING LANGUAGE
 Machine Language: This is the lowest-level language, directly understood by the computer's CPU. It consists of binary code (0s and 1s).
 Assembly Language: A low-level language that uses mnemonics to represent machine code instructions, making it more readable than machine language. It requires an assembler to translate it into machine code.
 High-Level Languages: These languages are designed to be more human-readable and abstract away many of the complexities of hardware. Examples include Python, Java, C++, and JavaScript. They require a compiler or interpreter to translate them into machine code.
+
 2. Programming Paradigms:
 Procedural Programming: Focuses on a sequence of instructions or procedures to be executed. Examples include C, Pascal, and Fortran.
 Object-Oriented Programming (OOP): Organizes code around "objects" that encapsulate data and behavior. Examples include Java, C++, Python, and C#.
 Functional Programming: Treats computation as the evaluation of mathematical functions and avoids changing state and mutable data. Examples include Haskell, Lisp, and Scala.
 Logic Programming: Expresses computation in terms of logical relations and facts. Prolog is a prominent example.
 Scripting Languages: Often interpreted languages used for automating tasks, creating dynamic web content, or extending applications. Examples include Python, JavaScript, Ruby, and PHP.
+
 3. Purpose/Domain:
 Web Development: Languages like JavaScript, HTML, CSS (for front-end), Python, PHP, Ruby, Node.js (for back-end).
 Mobile Development: Swift (iOS), Java/Kotlin (Android), C# (cross-platform with Xamarin).
@@ -25,6 +27,7 @@ Characteristics:
 Performance: Generally faster as the translation happens once, and the machine code is optimized for the specific architecture.
 Error Detection: Compilation errors are detected before runtime, preventing the program from running if errors exist.
 Examples: C, C++, C#, COBOL.
+
 Interpreted Languages:
 Process: Source code is read and executed line by line by a program called an interpreter during runtime. There is no separate compilation step to create an executable file.
 Execution: The interpreter translates and executes each instruction as it encounters it.
@@ -34,6 +37,7 @@ Platform Independence: Often more platform-independent as the interpreter handle
 Performance: Generally slower than compiled languages due to the on-the-fly translation during execution.
 Error Detection: Runtime errors are detected when the specific line of code is executed.
 Examples: Python, JavaScript, Perl, BASIC.
+
 Hybrid Approaches:
 Some languages, like Java and C#, utilize a hybrid approach. Their source code is first compiled into an intermediate bytecode, which is then interpreted by a virtual machine (e.g., JVM for Java). This bytecode can also be further optimized by Just-In-Time (JIT) compilers during runtime, blurring the lines between purely compiled and interpreted.
 
