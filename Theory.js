@@ -233,5 +233,3 @@ This makes backend code maintainable.
 ✔ You are writing large backend systems
 Async/await is far easier to scale and debug.
 */
-
-//* Ca
