@@ -1,208 +1,259 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Increment Decrement Counter Web App</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Increment Decrement Counter Web App</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+			body {
+				height: 100vh;
+				background-color: #111;
+				color: #fff;
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 20px;
+			}
 
-        body {
-            height: 100vh;
-            background-color: #111;
-            color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
+			.container {
+				text-align: center;
+				background-color: #1a1a1a;
+				padding: 40px 30px;
+				border-radius: 12px;
+				box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+				width: 100%;
+				max-width: 400px;
+			}
 
-        .container {
-            text-align: center;
-            background-color: #1a1a1a;
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-            width: 100%;
-            max-width: 400px;
-        }
+			h1 {
+				margin-bottom: 30px;
+				font-size: 2.8rem;
+			}
 
-        h1 {
-            margin-bottom: 30px;
-            font-size: 2.8rem;
-        }
+			#resetBtn {
+				background-color: #444;
+				color: #fff;
+				padding: 12px 28px;
+				font-size: 1.1rem;
+				border: none;
+				border-radius: 6px;
+				cursor: pointer;
+				margin-bottom: 25px;
+				transition: background-color 0.3s ease;
+			}
 
-        #resetBtn {
-            background-color: #444;
-            color: #fff;
-            padding: 12px 28px;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-bottom: 25px;
-            transition: background-color 0.3s ease;
-        }
+			#resetBtn:hover {
+				background-color: #666;
+			}
 
-        #resetBtn:hover {
-            background-color: #666;
-        }
+			.box {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 25px;
+			}
 
-        .box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-        }
+			.box button {
+				background-color: #fff;
+				color: #000;
+				padding: 14px 30px;
+				font-size: 2rem;
+				border: none;
+				border-radius: 10px;
+				cursor: pointer;
+				transition: background-color 0.3s ease;
+			}
 
-        .box button {
-            background-color: #fff;
-            color: #000;
-            padding: 14px 30px;
-            font-size: 2rem;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+			.box button:hover {
+				background-color: #ddd;
+			}
 
-        .box button:hover {
-            background-color: #ddd;
-        }
+			.box button:disabled {
+				background-color: #888;
+				cursor: not-allowed;
+			}
 
-        .box button:disabled {
-            background-color: #888;
-            cursor: not-allowed;
-        }
+			#num {
+				font-size: 2.8rem;
+				min-width: 60px;
+			}
 
-        #num {
-            font-size: 2.8rem;
-            min-width: 60px;
-        }
+			#save,
+			#load {
+				background-color: #444;
+				color: #fff;
+				padding: 12px 28px;
+				font-size: 1.1rem;
+				border: none;
+				border-radius: 6px;
+				cursor: pointer;
+				margin-top: 25px;
+				transition: background-color 0.3s ease;
+			}
 
-        @media (max-width: 500px) {
-            .container {
-                padding: 30px 20px;
-            }
+			#save:hover {
+				background-color: #2ecc71;
+			}
 
-            h1 {
-                font-size: 2rem;
-            }
+			#load:hover {
+				background-color: #3498db;
+			}
 
-            #resetBtn {
-                font-size: 1rem;
-                padding: 10px 20px;
-            }
+			@media (max-width: 500px) {
+				.container {
+					padding: 30px 20px;
+				}
 
-            .box {
-                flex-direction: column;
-                gap: 20px;
-            }
+				h1 {
+					font-size: 2rem;
+				}
 
-            .box button {
-                width: 100%;
-                font-size: 1.8rem;
-                padding: 12px 0;
-            }
+				#resetBtn {
+					font-size: 1rem;
+					padding: 10px 20px;
+				}
 
-            #num {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
-</head>
+				.box {
+					flex-direction: column;
+					gap: 20px;
+				}
 
-<body>
-    <div class="container">
-        <h1>Counter App</h1>
-        <button type="button" id="resetBtn">Reset</button>
-        <div class="box">
-            <button type="button" id="decrement">−</button>
-            <p id="num">0</p>
-            <button type="button" id="increment">+</button>
-        </div>
-    </div>
+				.box button {
+					width: 100%;
+					font-size: 1.8rem;
+					padding: 12px 0;
+				}
 
-    <script>
+				#num {
+					font-size: 2.5rem;
+				}
+			}
+		</style>
+	</head>
 
-        const incrementButton = document.getElementById('increment');
-        const decrementButton = document.getElementById('decrement');
-        const showNumber = document.getElementById('num');
-        const resetBtn = document.getElementById('resetBtn');
+	<body>
+		<div class="container">
+			<h1>Counter App</h1>
+			<button type="button" id="resetBtn">Reset</button>
+			<div class="box">
+				<button type="button" id="decrement">−</button>
+				<p id="num">0</p>
+				<button type="button" id="increment">+</button>
+			</div>
+			<div>
+				<button type="button" id="save">Save</button>
+				<button type="button" id="load">Load</button>
+			</div>
+		</div>
 
-        let count = 0;
+		<script>
+			const incrementButton = document.getElementById('increment');
+			const decrementButton = document.getElementById('decrement');
+			const showNumber = document.getElementById('num');
+			const resetBtn = document.getElementById('resetBtn');
+			const saveNumber = document.getElementById('save');
+			const loadNumber = document.getElementById('load');
 
-        const updateDisplay = () => {
-            showNumber.innerText = count;
-            decrementButton.disabled = count === 0;
-        };
+			let count = 0;
 
-        const incrementCount = () => {
-            count++;
-            updateDisplay();
-        };
+			const updateDisplay = () => {
+				showNumber.innerText = count;
+				decrementButton.disabled = count === 0;
+			};
 
-        const decrementCount = () => {
-            if (count > 0) {
-                count--;
-                updateDisplay();
-            };
-        };
+			const incrementCount = () => {
+				count++;
+				updateDisplay();
+			};
 
-        const resetCount = () => {
-            count = 0;
-            updateDisplay();
-        }
+			const decrementCount = () => {
+				if (count > 0) {
+					count--;
+					updateDisplay();
+				}
+			};
 
-        updateDisplay();
+			const resetCount = () => {
+				count = 0;
+				updateDisplay();
+			};
 
-        incrementButton.addEventListener('click', incrementCount);
-        decrementButton.addEventListener('click', decrementCount);
-        resetBtn.addEventListener('click', resetCount);
+			const saveCount = () => {
+				localStorage.setItem('count', count);
+			};
 
-        let incrementInterval, decrementInterval;
+			const loadCount = () => {
+				let saved = localStorage.getItem('count');
+				if (saved !== null) {
+					count = Number(saved);
+				}
+				updateDisplay();
+			};
 
-        // Hold to increment
-        // incrementButton.addEventListener('mousedown', () => {
-        //     incrementCount(); // Immediate increment
-        //     incrementInterval = setInterval(incrementCount, 150); // Repeat every 150ms
-        // });
-        // incrementButton.addEventListener('mouseup', () => clearInterval(incrementInterval));
-        // incrementButton.addEventListener('mouseleave', () => clearInterval(incrementInterval));
+			updateDisplay();
 
-        // Hold to decrement
-        // decrementButton.addEventListener('mousedown', () => {
-        //     decrementCount();
-        //     decrementInterval = setInterval(decrementCount, 150);
-        // });
-        // decrementButton.addEventListener('mouseup', () => clearInterval(decrementInterval));
-        // decrementButton.addEventListener('mouseleave', () => clearInterval(decrementInterval));
+			incrementButton.addEventListener('click', incrementCount);
+			decrementButton.addEventListener('click', decrementCount);
+			resetBtn.addEventListener('click', resetCount);
+			saveNumber.addEventListener('click', saveCount);
+			loadNumber.addEventListener('click', loadCount);
 
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowUp') {
-                incrementCount(); // Press ↑ to increment
-            } else if (e.key === 'ArrowDown') {
-                decrementCount(); // Press ↓ to decrement
-            } else if (e.key.toLowerCase() === 'r') {
-                resetCount(); // Press R to reset
-            }
-        });
-        // document.addEventListener('keydown', (e) => {
-        //     if (e.key === 'ArrowUp') {
-        //         incrementCount(); // Press ↑ to increment
-        //     } else if (e.key === 'ArrowDown') {
-        //         decrementCount(); // Press ↓ to decrement
-        //     } else if (e.key.toLowerCase() === 'r') {
-        //         resetCount(); // Press R to reset
-        //     }
-        // });
-    </script>
-</body>
-
+			window.addEventListener('keydown', (e) => {
+				if (e.key === 'ArrowUp') {
+					incrementCount(); // Press ↑ to increment
+				} else if (e.key === 'ArrowDown') {
+					decrementCount(); // Press ↓ to decrement
+				} else if (e.key.toLowerCase() === 'r') {
+					resetCount(); // Press R to reset
+				}
+			});
+		</script>
+	</body>
 </html>
+
+<script>
+	/*
+	let incrementInterval, decrementInterval;
+
+	// Hold to increment
+	incrementButton.addEventListener('mousedown', () => {
+		incrementCount(); // Immediate increment
+		incrementInterval = setInterval(incrementCount, 150); // Repeat every 150ms
+	});
+	incrementButton.addEventListener('mouseup', () =>
+		clearInterval(incrementInterval),
+	);
+	incrementButton.addEventListener('mouseleave', () =>
+		clearInterval(incrementInterval),
+	);
+
+	// Hold to decrement
+	decrementButton.addEventListener('mousedown', () => {
+		decrementCount();
+		decrementInterval = setInterval(decrementCount, 150);
+	});
+	decrementButton.addEventListener('mouseup', () =>
+		clearInterval(decrementInterval),
+	);
+	decrementButton.addEventListener('mouseleave', () =>
+		clearInterval(decrementInterval),
+	);
+
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'ArrowUp') {
+			incrementCount(); // Press ↑ to increment
+		} else if (e.key === 'ArrowDown') {
+			decrementCount(); // Press ↓ to decrement
+		} else if (e.key.toLowerCase() === 'r') {
+			resetCount(); // Press R to reset
+		}
+	});
+    */
+</script>
