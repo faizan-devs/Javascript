@@ -144,7 +144,7 @@ console.log(`Total Order Cancel: ${totalCancelOrder}`);
 
 const totalCancelOrderAmount = orders
 	.filter((order) => order.status === 'cancelled')
-	.reduce((sum, order) => sum + order.amount, 0);
+	.reduce((sum, order) => sum + order.amount);
 console.log(`Total Cancel Order Amount: ${totalCancelOrderAmount}`);
 
 const summary = orders
